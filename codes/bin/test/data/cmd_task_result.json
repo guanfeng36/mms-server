@@ -1,0 +1,6 @@
+{
+  "type":"cmd_task_result",
+  "id":"AA:BB:CC:DD:EE:FF",
+  "authorization": "WVdNNllqVTZOMlE2TmprNllXRTZZV0U9OlP+coomobUlJuu4WQMl8VGDSr8fdhdf2A==",
+  "data": {"task_id": 111, "result":"sssssssssss"}
+}

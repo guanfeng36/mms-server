@@ -1,0 +1,21 @@
+# LIBFREECWMP_FOUND - true if library and headers were found
+# LIBFREECWMP_INCLUDE_DIRS - include directories
+# LIBFREECWMP_LIBRARIES - library directories
+
+find_package(PkgConfig)
+pkg_check_modules(PC_LIBJSONGLIB QUIET json-glib-1.0)
+
+find_path(LIBJSONGLIB_INCLUDE_DIR json-glib/json-glib.h 
+	HINTS ${PC_LIBJSONGLIB_INCLUDEDIR} ${PC_LIBJSONGLIB_INCLUDE_DIRS})
+
+find_library(LIBJSONGLIB_LIBRARY NAMES json-glib-1.0 gobject-2.0 
+	HINTS ${PC_LIBJSONGLIB_LIBDIR} ${PC_LIBJSONGLIB_LIBRARY_DIRS})
+
+set(LIBJSONGLIB_LIBRARIES ${LIBJSONGLIB_LIBRARY})
+set(LIBJSONGLIB_INCLUDE_DIRS ${LIBJSONGLIB_INCLUDE_DIR})
+
+include(FindPackageHandleStandardArgs)
+
+find_package_handle_standard_args(LIBJSONGLIB DEFAULT_MSG LIBJSONGLIB_LIBRARY LIBJSONGLIB_INCLUDE_DIR)
+
+mark_as_advanced(LIBJSONGLIB_INCLUDE_DIR LIBJSONGLIB_LIBRARY)

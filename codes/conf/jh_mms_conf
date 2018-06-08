@@ -1,0 +1,20 @@
+[mysql]
+host = 127.0.0.1
+port = 3306
+username = root
+password = abc123
+
+[kafka]
+brokers = localhost:9092
+
+[server]
+listen_end = tcp://*:9000
+worker_num = 4
+
+[publish_server]
+endpoint = tcp://*:9001
+
+[log]
+log_file = /var/log/mms_server.log
+log_expire_days = 7
+log_level = 7

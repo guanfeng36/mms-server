@@ -1,0 +1,6 @@
+{
+  "type":"update_task_status",
+  "id":"aa:bb:cc:dd:ee:ff",
+  "authorization": "WVdNNllqVTZOMlE2TmprNllXRTZZV0U9OlP+coomobUlJuu4WQMl8VGDSr8fdhdf2A==",
+  "data": {"task_id": 4, "transaction_id":1, "status":"sssssssssss"}
+}

@@ -1,0 +1,5 @@
+#ifndef __INFORM_SERVICE_MAIN_H_
+#define __INFORM_SERVICE_MAIN_H_
+
+
+#endif  // __INFORM_SERVICE_MAIN_H_

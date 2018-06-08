@@ -1,0 +1,12 @@
+[global]
+strict init = true
+buffer min = 1024
+buffer max = 2MB	
+rotate lock file=/tmp/zlog.lock
+
+[formats]
+normal = "%d %V [%p:%f:%L] %m%n"
+
+[rules]
+*.debug "/var/log/mms.log", 100MB*10 ~ "/var/log/mms-%d(%Y%m%d).#2s.log"
+# *.info "/var/log/mms.log"; normal

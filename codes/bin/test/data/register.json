@@ -1,0 +1,7 @@
+{
+  "type":"register",
+  "id":"AA:BB:CC:DD:EE:FF",
+  "mac_addr":"AA:BB:CC:DD:EE:FF",
+  "device_code":"yyyyyyy",
+  "ipv4":"zzzzzz"
+}

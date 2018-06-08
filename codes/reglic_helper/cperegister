@@ -1,0 +1,83 @@
+#!/usr/bin/python2
+
+import os
+from snack import *
+
+
+def runTextUI():
+    screen = SnackScreen()
+    result = 0
+
+    while result >= 0:
+        screen = SnackScreen()
+        result = TextWindow()(screen)
+
+    if result == -1:
+        screen.finish()
+        os._exit(0)
+
+def log(str):
+    f = open("/tmp/re", "a")
+    f.write(str)
+    f.close()
+
+class TextWindow:
+    def __call__(self, screen):
+        self.sc = screen
+        bb = ButtonBar(screen, ["OK","Reset SN"])
+
+        re = [i.strip() for i in os.popen("ip a | grep 'link/ether' | awk '{print $2}' | uniq").readlines()]
+        mac_ls = []
+        label_mac = Label("MAC Adress:")
+        if len(re) == 0:
+            mac_ls.append(Label("Please make sure  ethernet is actived!"))
+
+        for mac in re:
+            mac_l = Label(mac)
+            mac_ls.append(mac_l)
+
+        label_sn = Label("Input SN:")
+        self.entry_sn = Entry(50)
+
+
+        gridForm = GridFormHelp(screen, "Input SN for JHTerm Manager", "", 2, len(mac_ls) + 2)
+        gridForm.add(label_mac, 0, 0)
+
+        index = 0
+        for l in mac_ls:
+            gridForm.add(l, 1, index)
+            index += 1
+
+        gridForm.add(label_sn, 0, index)
+        gridForm.add(self.entry_sn, 1, index)
+
+        gridForm.add(bb, 1, index + 1, padding=(0,3,0,0), growx = 1)
+
+        answer = gridForm.runOnce()
+
+        button = bb.buttonPressed(answer)
+    
+        log(str(button))
+
+        if str(button) == "reset sn":
+            return 0
+        elif str(button) == "ok":
+            re = os.popen('echo %s | /usr/bin/cpereglic' % self.entry_sn.value()).read()
+            if re.find('#Invalid License') > 0:
+                self.message("Warning", "Invalid License!Please check you SN!")
+                return 0
+            return -1
+        elif str(button) == "exit":
+            return -1
+        else:
+            return 0
+
+    def message(self, helpstr, msg):
+        msg_form = GridFormHelp(self.sc, helpstr, "", 1,  2)
+        msg_form.add(Label(msg), 0, 0)
+        bb = ButtonBar(self.sc, ["OK"])
+        msg_form.add(bb, 0, 1, padding=(0,3,0,0), growx=1)
+        msg_form.runPopup()
+        
+if __name__ == '__main__':
+    runTextUI()

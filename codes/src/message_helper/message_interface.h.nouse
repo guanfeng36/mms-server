@@ -1,0 +1,17 @@
+#ifndef __MESSAGE_INTERFACE_H_
+#define __MESSAGE_INTERFACE_H_
+
+#include <stdbool.h>
+
+typedef int (*sub_cb_func)(int type, const char* msg);
+
+typedef struct {
+  int (*send_str_without_reply)(const char* endpoint, const char* msg);
+  int (*send_str_with_reply)(const char* endpoint, const char* msg, char** response);
+  int (*create_subscriber_and_wait_msg)(const char* endpoint, sub_cb_func cb_func);
+} message_interface_t;
+
+int init_message_interface(message_interface_t** interface);
+void uinit_message_interface(message_interface_t* interface);
+
+#endif  // __MESSAGE_INTERFACE_H_

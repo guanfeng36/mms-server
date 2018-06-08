@@ -1,0 +1,23 @@
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+#include "message_sender.h"
+#include "message_interface.h"
+#include "message_subscriber.h"
+
+int init_message_interface(message_interface_t** interface) {
+  message_interface_t* temp = malloc(sizeof(message_interface_t));
+  assert(temp != NULL);
+
+  memset(temp, 0, sizeof(message_interface_t));
+  temp->send_str_without_reply = send_str_without_reply;
+  temp->send_str_with_reply = send_str_with_reply;
+  temp->create_subscriber_and_wait_msg = create_subscriber_and_wait_msg;
+
+  *interface = temp;
+  return 0;
+}
+
+void uinit_message_interface(message_interface_t* interface) {
+  free(interface);
+}

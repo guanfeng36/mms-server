@@ -1,0 +1,10 @@
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/test)
+
+ADD_EXECUTABLE(message_sender_test message_sender_test.c)
+TARGET_LINK_LIBRARIES(message_sender_test message_helper)
+
+ADD_EXECUTABLE(async_server_test async_server_test.c)
+TARGET_LINK_LIBRARIES(async_server_test message_helper)
+
+ADD_EXECUTABLE(publish_server_test publish_server_test.c)
+TARGET_LINK_LIBRARIES(publish_server_test message_helper)

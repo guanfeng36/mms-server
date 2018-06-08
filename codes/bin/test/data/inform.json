@@ -1,0 +1,29 @@
+{
+  "type": "inform",
+  "id": "AA:BB:CC:DD:EE:FF",
+  "authorization": "WVdNNllqVTZOMlE2TmprNllXRTZZV0U9OlP+coomobUlJuu4WQMl8VGDSr8fdhdf2A==",
+  "data": {
+    "mac_addr": "AA:BB:CC:DD:EE:FF",
+    "version": "1.0",
+    "current_time": "2017-01-02 10:10:10",
+    "retry_count": 10,
+    "os_type": "JHLS 5.1", 
+    "ipv4": "10.10.10.10", 
+    "hb_interval": 20, 
+    "station": "xxxxxxxxx", 
+    "station_info": "xxxxxxxxx", 
+    "address": "xxxxxxxxx", 
+    "location": "xxxxxxxxx", 
+    "hw_type": "n270", 
+    "machine_model": "pd001", 
+    "kernel_info": "xxxxxxxxx", 
+    "interface": "xxxxxxxxx", 
+    "network": "xxxxxxxxx", 
+    "ps2_device": "xxxxxxxxx", 
+    "usb_device": "xxxxxxxxx", 
+    "com": "xxxxxxxxx", 
+    "graphics": "xxxxxxxxx", 
+    "libs": "xxxxxxxxx", 
+    "software": "xxxxxxxxx"
+  }
+}

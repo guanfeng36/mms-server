@@ -1,0 +1,5 @@
+#ifndef __HEARTBEAT_SERVICE_MAIN_H_
+#define __HEARTBEAT_SERVICE_MAIN_H_
+
+
+#endif  // __HEARTBEAT_SERVICE_MAIN_H_
